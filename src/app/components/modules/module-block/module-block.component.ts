@@ -1,6 +1,6 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Module } from '../../models/Module';
+import { Module } from '../../../models/Module';
 import { Router } from '@angular/router';
 
 @Component({

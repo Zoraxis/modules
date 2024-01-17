@@ -1,14 +1,15 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../service/apiservice/apiservice.service';
-import { Module } from '../../models/Module';
+import { ApiService } from '../../../service/apiservice/apiservice.service';
+import { Module } from '../../../models/Module';
 import { Observable, take } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { GoogleIconComponent } from '../../shared/google-icon/google-icon.component';
 
 @Component({
   selector: 'app-module',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, GoogleIconComponent],
   providers: [ApiService, HttpClient, HttpClientModule],
   templateUrl: './module.component.html',
   styleUrl: './module.component.scss',

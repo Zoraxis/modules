@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModuleBlockComponent } from '../module-block/module-block.component';
 import { NgClass, NgFor } from '@angular/common';
-import { Module } from '../../models/Module';
+import { Module } from '../../../models/Module';
 
 export type ModuleStateChangedEvent = {
   isSelected: boolean;

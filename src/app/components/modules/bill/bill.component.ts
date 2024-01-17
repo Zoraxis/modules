@@ -1,9 +1,9 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { ModuleCategory } from '../../models/ModuleCategory';
-import { DialogComponent } from '../dialog/dialog.component';
+import { ModuleCategory } from '../../../models/ModuleCategory';
+import { DialogComponent } from '../../shared/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { ButtonComponent } from '../button/button.component';
+import { ButtonComponent } from '../../shared/button/button.component';
 
 @Component({
   selector: 'app-bill',

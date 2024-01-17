@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryComponent } from '../category/category.component';
-import { ModuleCategory } from '../../models/ModuleCategory';
+import { ModuleCategory } from '../../../models/ModuleCategory';
 import { NgFor } from '@angular/common';
 import { BillComponent } from '../bill/bill.component';
-import { ApiService } from '../../service/apiservice/apiservice.service';
+import { ApiService } from '../../../service/apiservice/apiservice.service';
 import { Observable, Subject, take } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 

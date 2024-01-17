@@ -1,0 +1,57 @@
+.module {
+  overflow: hidden;
+  width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+
+  .module-label {
+    pointer-events: none;
+    font-weight: 900;
+    font-size: 120px;
+    padding-top: 0%;
+    text-transform: uppercase;
+    writing-mode: vertical-lr;
+
+    &.module-label-left {
+      padding-top: 25%;
+    }
+
+    &.module-label-right {
+      text-orientation: upright;
+      letter-spacing: -50px;
+    }
+  }
+
+  .module-box {
+    width: 750px;
+    aspect-ratio: 1;
+    border: 30px solid #000;
+    align-self: center;
+
+    padding: 8px 12px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin: 0;
+    }
+
+    .module-title {
+      width: 100%;
+      font-size: 72px;
+      word-wrap: break-word;
+    }
+
+    .module-price {
+      font-size: 120px;
+      align-self: flex-end;
+      line-height: 95px;
+    }
+  }
+}
