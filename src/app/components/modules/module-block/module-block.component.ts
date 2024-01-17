@@ -30,7 +30,6 @@ export class ModuleBlockComponent implements OnInit {
     this.router.navigate([
       `/${this.module.categoryId}/modules/${this.module.id}`,
     ]);
-    console.log(this.module);
   }
 
   ngOnInit() {

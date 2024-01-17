@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../service/apiservice/apiservice.service';
 import { Module } from '../../../models/Module';
 import { Observable, take } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GoogleIconComponent } from '../../shared/google-icon/google-icon.component';
+import { ButtonComponent } from '../../shared/button/button.component';
 
 @Component({
   selector: 'app-module',
   standalone: true,
-  imports: [HttpClientModule, GoogleIconComponent],
+  imports: [HttpClientModule, GoogleIconComponent, ButtonComponent],
   providers: [ApiService, HttpClient, HttpClientModule],
   templateUrl: './module.component.html',
   styleUrl: './module.component.scss',
@@ -17,7 +18,7 @@ import { GoogleIconComponent } from '../../shared/google-icon/google-icon.compon
 export class ModuleComponent implements OnInit {
   public data$: Observable<Module> = new Observable();
 
-  constructor(private api: ApiService, private route: ActivatedRoute) {}
+  constructor(private api: ApiService, private route: ActivatedRoute, private router: Router) {}
 
   module: Module = new Module();
   ngOnInit() {
@@ -33,5 +34,9 @@ export class ModuleComponent implements OnInit {
     this.data$.pipe(take(1)).subscribe((value) => {
       this.module = value;
     });
+  }
+
+  choose = () => {
+    this.router.navigate(['/']);
   }
 }

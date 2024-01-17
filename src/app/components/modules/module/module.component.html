@@ -1,9 +1,17 @@
 <div class="module">
   <span class="module-label module-label-left">module</span>
-  <div class="module-box">
-    <h2 class="module-title">{{module.title}}</h2>
-    <app-google-icon class="module-icon" [icon]="module.icon"></app-google-icon>
-    <h2 class="module-price">{{module.price}}€</h2>
+  <div class="module-box-wrapper">
+    <div class="module-box">
+      <div class="module-box-back">
+        <app-button [label]="'CHOOSE'" [alt]="'TAP'" [onClick]="choose"></app-button>
+      </div>
+      <div class="module-box-center"></div>
+      <div class="module-box-front">
+        <h2 class="module-title">{{module.title}}</h2>
+        <app-google-icon class="module-icon" [icon]="module.icon"></app-google-icon>
+        <h2 class="module-price">{{module.price}}€</h2>
+      </div>
+    </div>
   </div>
   <span class="module-label module-label-right">module</span>
 </div>
