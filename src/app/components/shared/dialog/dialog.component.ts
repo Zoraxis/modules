@@ -14,6 +14,10 @@ export interface DialogData {
   imports: [ButtonComponent],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.scss',
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
 })
 export class DialogComponent {
   constructor(

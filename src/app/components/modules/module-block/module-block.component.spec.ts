@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModuleBlockComponent } from './module-block.component';
 
-describe('ModuleComponent', () => {
+describe('ModuleBlockComponent', () => {
   let component: ModuleBlockComponent;
   let fixture: ComponentFixture<ModuleBlockComponent>;
 
@@ -20,4 +20,8 @@ describe('ModuleComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should be filled', () => {
+  //   expect(component.module.id).toBeGreaterThanOrEqual(0);
+  // });
 });

@@ -11,7 +11,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   getAll(props: string = ''): Observable<any> {
-    return this.http.get(`${this.api}${props}.json`).pipe(catchError(this.handleError));
+    return this.http
+      .get(`${this.api}${props}.json`)
+      .pipe(catchError(this.handleError));
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -12,7 +12,11 @@ import { Router } from '@angular/router';
 })
 export class ModuleBlockComponent implements OnInit {
   constructor(private router: Router) {}
-  @Input('module') module: any;
+  @Input('module') module: any = {
+    module: new Module(),
+    categoryId: -1,
+    id: -1,
+  };
 
   @Output() onSelectedChanged = new EventEmitter<any>();
 
@@ -22,18 +26,18 @@ export class ModuleBlockComponent implements OnInit {
     this.selected = !this.selected;
     this.onSelectedChanged.emit({
       isSelected: this.selected,
-      title: this.module.module.title,
+      title: this.module?.module?.title,
     });
   }
 
   moduleInfo() {
     this.router.navigate([
-      `/${this.module.categoryId}/modules/${this.module.id}`,
+      `/${this.module?.categoryId}/modules/${this.module?.id}`,
     ]);
   }
 
   ngOnInit() {
-    if (!localStorage.getItem(this.module.module.title)) return;
+    if (!localStorage.getItem(this.module?.module?.title)) return;
     this.toggleSelected();
   }
 }
