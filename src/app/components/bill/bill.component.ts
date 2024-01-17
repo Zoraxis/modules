@@ -37,7 +37,6 @@ export class BillComponent {
   }
 
   submit = () => {
-    console.log(this.checkBill());
     let dialogProps = {};
     if (this.checkBill()) {
       dialogProps = {

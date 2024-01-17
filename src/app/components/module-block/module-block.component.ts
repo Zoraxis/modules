@@ -34,8 +34,7 @@ export class ModuleBlockComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (localStorage.getItem(this.module.module.title)) {
-      this.selected = true;
-    }
+    if (!localStorage.getItem(this.module.module.title)) return;
+    this.toggleSelected();
   }
 }
