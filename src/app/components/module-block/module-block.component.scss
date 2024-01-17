@@ -66,7 +66,7 @@
   &:hover,
   &.selected {
     transition: 0.35s;
-    border: 1px solid #FFF;
+    border: 1px solid #fff;
 
     h3 {
       font-weight: 600;
@@ -77,11 +77,17 @@
       opacity: 0.8;
       filter: blur(5px);
     }
+  }
 
+  &:hover {
+    outline: 5px dashed #000;
+    outline-offset: -3px;
+  }
+
+  &.selected {
     .border {
       transition: 0.35s;
       transform: rotateX(0deg) rotateY(0deg);
-
 
       &.bottom-right-border {
         transform: rotateY(180deg);
@@ -92,10 +98,4 @@
       }
     }
   }
-
-  &:hover {
-    outline: 5px dashed #000;
-    outline-offset: -3px;
-  }
-
 }

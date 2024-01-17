@@ -2,4 +2,8 @@
   <app-category (onSelectedModuleChanged)="selectedModuleChanged($event)" *ngFor="let category of categories; index as i"
     [modules]="category.modules" [title]="category.title" [id]="i"></app-category>
 </div>
+<div class="hints">
+  <span class="hint hint-left">Double click a module to enter the detail page</span>
+  <span class="hint hint-right">Click twice on any of modules to see details</span>
+</div>
 <app-bill [categories]="selectedCategroies"></app-bill>
