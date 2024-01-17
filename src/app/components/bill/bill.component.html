@@ -1,0 +1,19 @@
+<div class="bill">
+  <div class="bill-list">
+    <div *ngFor="let category of categories">
+      <div *ngIf="category.modules.length > 0">
+        <h4 class="title">{{category.title}}</h4>
+        <div *ngFor="let module of category.modules">
+          <div class="bill-module">
+            <div>-</div>
+            <div class="bill-module-title">{{module.title}}</div>
+            <div class="bill-module-price">{{module.price}}€</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-button class="bill-button" *ngIf="getTotal() > 0" [onClick]="submit" [label]="total + '€'" [alt]="'PAY'">
+    Bestellen
+  </app-button>
+</div>

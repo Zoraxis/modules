@@ -1,0 +1,5 @@
+<div class="category-list">
+  <app-category (onSelectedModuleChanged)="selectedModuleChanged($event)" *ngFor="let category of categories; index as i"
+    [modules]="category.modules" [title]="category.title" [id]="i"></app-category>
+</div>
+<app-bill [categories]="selectedCategroies"></app-bill>

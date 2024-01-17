@@ -1,0 +1,15 @@
+<div class="dialog">
+  <div class="dialog-fog" (click)="close()"></div>
+  <div class="dialog-block">
+    <div class="dialog-title">{{ data.title }}</div>
+    <div class="dialog-descr">{{ data.descr }}</div>
+    <app-button class="dialog-btn" [onClick]="close" [label]="data.btn" [alt]="'OK'"></app-button>
+
+    <div class="borders">
+      <img class="border top-left-border" src="assets/icons/border.svg">
+      <img class="border top-right-border" src="assets/icons/border.svg">
+      <img class="border bottom-left-border" src="assets/icons/border.svg">
+      <img class="border bottom-right-border" src="assets/icons/border.svg">
+    </div>
+  </div>
+</div>

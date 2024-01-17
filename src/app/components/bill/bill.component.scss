@@ -1,0 +1,33 @@
+.bill {
+  width: 100vw;
+  padding: 60px 7.5%;
+  margin: 0 auto;
+
+  .bill-list {
+    width: max-content;
+
+    .title {
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .bill-module-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bill-module {
+      display: flex;
+      gap: 5px;
+      font-size: 18px;
+    }
+  }
+
+  .bill-button {
+    margin-top: 24px;
+    display: block;
+  }
+}

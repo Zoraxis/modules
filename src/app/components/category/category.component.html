@@ -1,0 +1,11 @@
+<div class="category" [ngClass]="{ selected: selectedModules.length > 0 }">
+  <h2>{{ title }}</h2>
+  <div class="module-list">
+    <app-module-block
+      (onSelectedChanged)="moduleSelectedChanged($event)"
+      *ngFor="let module of modules; index as i"
+      [module]="{categoryId: id, id: i, module}"
+    >
+    </app-module-block>
+  </div>
+</div>

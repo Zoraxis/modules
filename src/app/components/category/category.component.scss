@@ -1,0 +1,55 @@
+.category {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &.selected {
+    h2 {
+      font-weight: 200;
+
+      &:before,
+      &:after {
+        height: 2px;
+      }
+    }
+  }
+
+  h2 {
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 48px;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: -100px;
+      width: 75px;
+      height: 1px;
+      background-color: black;
+    }
+
+    &:after {
+      left: auto;
+      right: -100px;
+    }
+
+  }
+
+  .module-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    width: 75%;
+
+    div {
+      flex: 1 1 25%;
+    }
+  }
+}

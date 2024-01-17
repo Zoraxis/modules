@@ -1,0 +1,10 @@
+<div (click)="toggleSelected()" (dblclick)="moduleInfo()" class="module" [ngClass]="{'selected' : selected}">
+  <h3>{{module.module.title}}</h3>
+  <h2 class="price">{{module.module.price}}€</h2>
+  <div class="borders">
+    <img class="border top-left-border" src="assets/icons/border.svg">
+    <img class="border top-right-border" src="assets/icons/border.svg">
+    <img class="border bottom-left-border" src="assets/icons/border.svg">
+    <img class="border bottom-right-border" src="assets/icons/border.svg">
+  </div>
+</div>
