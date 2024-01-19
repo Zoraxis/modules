@@ -1,7 +1,7 @@
 <div class="module" *ngIf="!!module">
   <span class="module-label module-label-left">module</span>
-  <div class="module-box-wrapper">
-    <div class="module-box">
+  <div class="module-box-wrapper" (click)="turn()" [ngClass]="{'turned': turned}">
+    <div class="module-box" >
       <div class="module-box-back">
         <app-button [label]="'CHOOSE'" [alt]="'TAP'" [onClick]="choose"></app-button>
       </div>

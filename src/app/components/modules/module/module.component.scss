@@ -28,6 +28,8 @@
   .module-box {
     overflow: visible;
     position: relative;
+    width: 750px;
+    height: 750px;
     border: 30px solid #000;
     transition: 2s;
 
@@ -46,7 +48,15 @@
       text-align: right;
     }
 
+    .module-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
     .module-box-front {
+      height: 100%;
       transition: 1ms;
       transition-delay: 0.60s;
       display: flex;
@@ -92,11 +102,12 @@
     align-self: center;
     width: 750px;
     height: 750px;
+    position: relative;
+    cursor: pointer;
 
-    &:hover {
+    &.turned {
       .module-box {
         transition: 2s;
-
         transform: rotateY(180deg);
 
         .module-box-front {

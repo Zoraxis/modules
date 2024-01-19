@@ -6,7 +6,7 @@ import { Observable, take } from 'rxjs';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { GoogleIconComponent } from '../../shared/google-icon/google-icon.component';
 import { ButtonComponent } from '../../shared/button/button.component';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-module',
@@ -16,7 +16,8 @@ import { NgIf } from '@angular/common';
     GoogleIconComponent,
     ButtonComponent,
     RouterModule,
-    NgIf
+    NgIf,
+    NgClass
   ],
   providers: [ApiService, HttpClient, HttpClientModule],
   templateUrl: './module.component.html',
@@ -51,4 +52,10 @@ export class ModuleComponent implements OnInit {
     localStorage.setItem(this.module.title, 'true');
     this.router.navigate(['/']);
   };
+
+  turned = false;
+
+  turn() {
+    this.turned = !this.turned;
+  }
 }
