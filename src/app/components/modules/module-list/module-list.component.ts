@@ -4,7 +4,7 @@ import { ModuleCategory } from '../../../models/ModuleCategory';
 import { NgFor } from '@angular/common';
 import { BillComponent } from '../bill/bill.component';
 import { ApiService } from '../../../service/apiservice/apiservice.service';
-import { Observable, Subject, take } from 'rxjs';
+import { Observable, Subject, firstValueFrom, take } from 'rxjs';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -21,21 +21,19 @@ export class ModuleListComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   categories: ModuleCategory[] = [];
+  selectedCategroies: ModuleCategory[] = [];
 
-  ngOnInit() {
+  async ngOnInit() {
     this.data$ = this.api.getAll();
-    this.data$.pipe(take(1)).subscribe((value) => {
-      this.categories.push(...value);
-      this.selectedCategroies = this.categories.map((category) => {
-        return {
-          title: category.title,
-          modules: [],
-        };
-      });
+    const data = await firstValueFrom(this.data$);
+    this.categories.push(...data);
+    this.selectedCategroies = this.categories.map((category) => {
+      return {
+        title: category.title,
+        modules: [],
+      };
     });
   }
-
-  selectedCategroies: ModuleCategory[] = [];
 
   selectedModuleChanged(data: any) {
     const modules = this.selectedCategroies.find(

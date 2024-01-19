@@ -4,6 +4,7 @@ import { ModuleCategory } from '../../../models/ModuleCategory';
 import { DialogComponent } from '../../shared/dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ButtonComponent } from '../../shared/button/button.component';
+import { Module } from '../../../models/Module';
 
 @Component({
   selector: 'app-bill',
@@ -13,7 +14,7 @@ import { ButtonComponent } from '../../shared/button/button.component';
   styleUrl: './bill.component.scss',
 })
 export class BillComponent {
-  @Input('categories') categories = [new ModuleCategory()];
+  @Input('categories') categories: ModuleCategory[] = [];
   constructor(public dialog: MatDialog) {}
 
   total: number = this.getTotal();
@@ -22,7 +23,14 @@ export class BillComponent {
     this.total = this.categories
       .map((c) => c.modules)
       .reduce((acc, curr) => {
-        return acc + curr.reduce((acc, curr) => acc + curr.price, 0);
+        return (
+          acc +
+          curr.reduce(
+            (acc: number, curr: Module) =>
+              acc + parseInt(curr?.price?.toString()),
+            0
+          )
+        );
       }, 0);
     return this.total;
   }

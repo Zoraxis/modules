@@ -20,7 +20,7 @@ export class ApiService {
     if (error.error instanceof ErrorEvent) {
       console.log(error.error.message);
     } else {
-      console.log(error.status);
+      console.log(error);
     }
     return throwError(console.log('Something is wrong!'));
   }

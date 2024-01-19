@@ -1,4 +1,9 @@
 body {
   margin: 0px;
   box-sizing: border-box;
+
+  ::selection {
+    color: white;
+    background-color: black;
+  }  
 }

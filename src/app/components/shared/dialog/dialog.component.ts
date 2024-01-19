@@ -1,4 +1,11 @@
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogRef,
+  MatDialogTitle,
+} from '@angular/material/dialog';
 import { Component, Inject } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 
@@ -11,13 +18,15 @@ export interface DialogData {
 @Component({
   selector: 'app-dialog',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [
+    ButtonComponent,
+    MatDialogTitle,
+    MatDialogContent,
+    MatDialogActions,
+    MatDialogClose,
+  ],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.scss',
-  providers: [
-    { provide: MatDialogRef, useValue: {} },
-    { provide: MAT_DIALOG_DATA, useValue: {} },
-  ],
 })
 export class DialogComponent {
   constructor(
