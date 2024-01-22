@@ -17,7 +17,7 @@ import { NgClass, NgIf } from '@angular/common';
     ButtonComponent,
     RouterModule,
     NgIf,
-    NgClass
+    NgClass,
   ],
   providers: [ApiService, HttpClient, HttpClientModule],
   templateUrl: './module.component.html',
@@ -32,22 +32,30 @@ export class ModuleComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {
-    this.getSlugParameters();
-  }
+  async ngOnInit()  {
+    await this.getSlugParameters();
+    const paramMap = this.route.snapshot.paramMap;
+  };
   module: Module = new Module();
 
-  getSlugParameters() {
+  private createModuleURL = (categoryId: string, prop: string, id: string) =>
+    `${categoryId}/${prop}/${id}`;
+
+  private getModuleURL = () => {
     const paramMap = this.route.snapshot.paramMap;
     const categoryId = paramMap.get('category');
     const prop = paramMap.get('prop');
     const id = paramMap.get('module');
-    //TODO: would put this logic into the service
-    this.data$ = this.api.getAll(`${categoryId}/${prop}/${id}`);
-    this.data$.pipe(take(1)).subscribe((value) => {
-      this.module = value;
-    });
-  }
+
+    if (categoryId === null || prop === null || id === null) return;
+
+    return this.createModuleURL(categoryId, prop, id);
+  };
+
+  getSlugParameters = async () => {
+    const url = this.getModuleURL();
+    this.module = (await this.api.fetchModules(url)) as Module;
+  };
 
   choose = () => {
     localStorage.setItem(this.module.title, 'true');
@@ -56,7 +64,7 @@ export class ModuleComponent implements OnInit {
 
   turned = false;
 
-  turn() {
+  turn = () => {
     this.turned = !this.turned;
-  }
+  };
 }

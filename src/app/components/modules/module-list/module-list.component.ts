@@ -24,8 +24,7 @@ export class ModuleListComponent implements OnInit {
   selectedCategroies: ModuleCategory[] = [];
 
   async ngOnInit() {
-    this.data$ = this.api.getAll();
-    const data = await firstValueFrom(this.data$);
+    const data = await this.api.fetchModules() as ModuleCategory[];
     this.categories.push(...data);
     this.selectedCategroies = this.categories.map((category) => {
       return {

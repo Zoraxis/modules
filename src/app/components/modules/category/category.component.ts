@@ -2,11 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModuleBlockComponent } from '../module-block/module-block.component';
 import { NgClass, NgFor } from '@angular/common';
 import { Module } from '../../../models/Module';
-
-export type ModuleStateChangedEvent = {
-  isSelected: boolean;
-  title: string;
-};
+import { CategoryModuleStateChangedEvent, ModuleStateChangedEvent } from '../../../types/ModuleStateChanged';
 
 @Component({
   selector: 'app-category',
@@ -20,7 +16,7 @@ export class CategoryComponent {
   @Input('id') id: number = 0;
   @Input('modules') modules = [new Module()];
 
-  @Output() onSelectedModuleChanged = new EventEmitter<any>();
+  @Output() onSelectedModuleChanged = new EventEmitter<CategoryModuleStateChangedEvent>();
 
   selectedModules: Array<string> = [];
 
@@ -33,6 +29,8 @@ export class CategoryComponent {
     }
 
     const module = this.modules.find((m) => m.title === data.title);
+
+    if (!module) return;
 
     this.onSelectedModuleChanged.emit({
       module: module,

@@ -2,6 +2,7 @@ import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Module } from '../../../models/Module';
 import { Router } from '@angular/router';
+import { ModuleBlock } from '../../../types/ModuleBlock';
 
 @Component({
   selector: 'app-module-block',
@@ -12,8 +13,7 @@ import { Router } from '@angular/router';
 })
 export class ModuleBlockComponent implements OnInit {
   constructor(private router: Router) {}
-  //TODO: use types instead of any
-  @Input('module') module: any = {
+  @Input('module') module: ModuleBlock = {
     module: new Module(),
     categoryId: -1,
     id: -1,
@@ -23,7 +23,6 @@ export class ModuleBlockComponent implements OnInit {
 
   selected: boolean = false;
 
-  //TODO: use access modifiers
   toggleSelected() {
     this.selected = !this.selected;
     this.onSelectedChanged.emit({

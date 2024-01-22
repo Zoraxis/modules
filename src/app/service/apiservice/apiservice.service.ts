@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, firstValueFrom, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ModuleCategory } from '../../models/ModuleCategory';
+import { Module } from '../../models/Module';
 
 @Injectable()
 export class ApiService {
@@ -10,11 +12,17 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  //TODO: use types instead of any
-  getAll(props: string = ''): Observable<any> {
+  private get(props: string): Observable<ModuleCategory[] | Module> {
     return this.http
-      .get(`${this.api}${props}.json`)
+      .get<ModuleCategory[] | Module>(`${this.api}${props}.json`)
       .pipe(catchError(this.handleError));
+  }
+
+  async fetchModules(props: string = ''): Promise<ModuleCategory[] | Module> {
+    const res = this.get(props);
+    const data = await firstValueFrom(res);
+
+    return data
   }
 
   private handleError(error: HttpErrorResponse) {

@@ -8,9 +8,4 @@ export class Module {
     this.price = price;
     this.icon = icon;
   }
-
-  //TODO: this getter is unused
-  getSlug() {
-    return this.title.toLowerCase().replace(/\s/g, '-');
-  }
 }

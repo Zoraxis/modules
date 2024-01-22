@@ -26,7 +26,6 @@ export class BillComponent {
           acc +
           curr.reduce(
             (acc: number, curr: Module) =>
-              //TODO: why toString() and parseInt()?
               acc + parseInt(curr?.price?.toString()),
             0
           )
@@ -35,7 +34,6 @@ export class BillComponent {
     return this.total;
   }
 
-  //TODO: naming can be improved
   checkCategorySelected = () => {
     for (const cateogory of this.categories) {
       if (cateogory.modules.length === 0) {
@@ -45,7 +43,6 @@ export class BillComponent {
     return true;
   }
 
-  //TODO: pick one naming convention and stick to it, prefer typescript naming convention
   submit = () => {
     let dialogProps = {};
     if (this.checkCategorySelected()) {
