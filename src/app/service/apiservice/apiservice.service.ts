@@ -10,6 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
+  //TODO: use types instead of any
   getAll(props: string = ''): Observable<any> {
     return this.http
       .get(`${this.api}${props}.json`)

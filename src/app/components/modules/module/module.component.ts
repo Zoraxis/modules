@@ -42,6 +42,7 @@ export class ModuleComponent implements OnInit {
     const categoryId = paramMap.get('category');
     const prop = paramMap.get('prop');
     const id = paramMap.get('module');
+    //TODO: would put this logic into the service
     this.data$ = this.api.getAll(`${categoryId}/${prop}/${id}`);
     this.data$.pipe(take(1)).subscribe((value) => {
       this.module = value;

@@ -25,6 +25,7 @@ export class CategoryComponent {
   selectedModules: Array<string> = [];
 
   moduleSelectedChanged(data: ModuleStateChangedEvent) {
+    //TODO: this actually would be great in an service, which can be even unit tested
     if (data.isSelected) {
       this.selectedModules.push(data.title);
     } else {
