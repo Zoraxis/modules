@@ -9,6 +9,7 @@ export class Module {
     this.icon = icon;
   }
 
+  //TODO: this getter is unused
   getSlug() {
     return this.title.toLowerCase().replace(/\s/g, '-');
   }
