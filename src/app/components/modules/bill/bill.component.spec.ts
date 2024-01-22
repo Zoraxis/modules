@@ -72,7 +72,7 @@ describe('BillComponent', () => {
       new ModuleCategory('Maßnahmenmanagment', []),
     ];
     //checking if the bill is valid
-    expect(fixture.componentInstance.checkBill()).toBe(false);
+    expect(fixture.componentInstance.checkCategorySelected()).toBe(false);
 
     //seeding bill with all but one category
     fixture.componentInstance.categories[0].modules.push(new Module());
@@ -80,12 +80,12 @@ describe('BillComponent', () => {
     fixture.componentInstance.categories[2].modules.push(new Module());
     fixture.componentInstance.categories[3].modules.push(new Module());
     //checking if the bill is valid
-    expect(fixture.componentInstance.checkBill()).toBe(false);
+    expect(fixture.componentInstance.checkCategorySelected()).toBe(false);
 
     //adding last category
     fixture.componentInstance.categories[4].modules.push(new Module());
     //checking if the bill is valid
-    expect(fixture.componentInstance.checkBill()).toBe(true);
+    expect(fixture.componentInstance.checkCategorySelected()).toBe(true);
   });
 
   it('should calculate total price', async () => {

@@ -1,0 +1,20 @@
+.transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: white;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0, 1, 1);
+
+    &.left{
+        transition: 1s;
+        left: -100vw;
+    }
+    &.right{
+        transition: 1s;
+        left: 100vw;
+    }
+}

@@ -17,9 +17,7 @@ export class BillComponent {
   @Input('categories') categories: ModuleCategory[] = [];
   constructor(public dialog: MatDialog) {}
 
-  total: number = this.getTotal();
-
-  getTotal() {
+  getTotal = () => {
     this.total = this.categories
       .map((c) => c.modules)
       .reduce((acc, curr) => {
@@ -35,7 +33,7 @@ export class BillComponent {
     return this.total;
   }
 
-  checkBill() {
+  checkCategorySelected = () => {
     for (const cateogory of this.categories) {
       if (cateogory.modules.length === 0) {
         return false;
@@ -46,7 +44,7 @@ export class BillComponent {
 
   submit = () => {
     let dialogProps = {};
-    if (this.checkBill()) {
+    if (this.checkCategorySelected()) {
       dialogProps = {
         data: {
           title: 'COOL',
@@ -65,4 +63,6 @@ export class BillComponent {
     }
     const dialogRef = this.dialog.open(DialogComponent, dialogProps);
   };
+
+  total: number = this.getTotal();
 }

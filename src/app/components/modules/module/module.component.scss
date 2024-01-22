@@ -3,6 +3,7 @@
   width: 80vw;
   height: 100vh;
   margin: 0 auto;
+  --size: 800px;
 
   display: flex;
   justify-content: space-between;
@@ -28,8 +29,8 @@
   .module-box {
     overflow: visible;
     position: relative;
-    width: 750px;
-    height: 750px;
+    width: var(--size);
+    height: var(--size);
     border: 30px solid #000;
     transition: 2s;
 
@@ -100,8 +101,8 @@
 
   .module-box-wrapper {
     align-self: center;
-    width: 750px;
-    height: 750px;
+    width: var(--size);
+    height: var(--size);
     position: relative;
     cursor: pointer;
 
