@@ -20,6 +20,7 @@ export class BillComponent {
   total: number = this.getTotal();
 
   getTotal() {
+    //TODO: total is calculated every time the function is called. Needed?
     this.total = this.categories
       .map((c) => c.modules)
       .reduce((acc, curr) => {
@@ -27,6 +28,7 @@ export class BillComponent {
           acc +
           curr.reduce(
             (acc: number, curr: Module) =>
+              //TODO: why toString() and parseInt()?
               acc + parseInt(curr?.price?.toString()),
             0
           )
@@ -35,6 +37,7 @@ export class BillComponent {
     return this.total;
   }
 
+  //TODO: naming can be improved
   checkBill() {
     for (const cateogory of this.categories) {
       if (cateogory.modules.length === 0) {
@@ -44,6 +47,7 @@ export class BillComponent {
     return true;
   }
 
+  //TODO: pick one naming convention and stick to it, prefer typescript naming convention
   submit = () => {
     let dialogProps = {};
     if (this.checkBill()) {
